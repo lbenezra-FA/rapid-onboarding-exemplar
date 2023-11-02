@@ -14,12 +14,24 @@ models:
 
   - name: agg_regions_segments
     description: Aggregated model by region and segment.
+    tests:
+      - dbt_datamocktool.unit_test:
+          config: 
+            tags: unit_test
+          input_mapping:
+            ref('dim_customers'): ref('dmt__dim_customers')
+            ref('fct_orders'): ref('dmt__fct_orders')
+          expected_output: ref('dmt__agg_regions_segment')
+          depends_on:
+            - ref('fct_orders')
+            - ref('dim_customers')
     columns:
       - name: region
         description: One of the five global regions.
         tests:
           - accepted_values:
               values: ['MIDDLE EAST','AFRICA','EUROPE','ASIA','AMERICA']
+            
 
       - name: market_segment
         description: One of the five market segments.

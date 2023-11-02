@@ -1,0 +1,2 @@
+order_id,order_date,customer_id,order_status_code,priority_code,clerk_name,ship_priority,order_count,gross_item_sales_amount,item_discount_amount,item_tax_amount,net_item_sales_amount
+1,07/01/23,5,O,2-HIGH,Clerk#000000001,0,1,107.5,0,7.5,100

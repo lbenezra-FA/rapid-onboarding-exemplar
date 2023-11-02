@@ -16,3 +16,4 @@ selectors:
         - '+stg_tpch__customers+'
         - exclude: 
             - 'tag:audit_helper'
+            - 'tag:unit_test'
