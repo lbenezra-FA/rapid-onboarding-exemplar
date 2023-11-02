@@ -2,7 +2,8 @@
 
 {{
     config(
-        severity = 'warn'
+        severity = 'warn',
+        tags='audit_helper'
     )
 }}
 

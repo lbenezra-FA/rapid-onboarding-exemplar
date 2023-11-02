@@ -8,3 +8,11 @@ selectors:
         - intersection:
           - 'config.materialized:snapshot'
           - 'tag:daily'
+
+  - name: selector_example_test_tags
+    description: this is an example of a job that has tests we want to exclude 
+    definition: 
+      union: 
+        - '+stg_tpch__customers+'
+        - exclude: 
+            - 'tag:audit_helper'
