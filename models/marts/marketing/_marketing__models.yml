@@ -13,8 +13,7 @@ models:
       - name: customer_id
         description: Primary id on the customers table
         tests:
-          - unique
-          - not_null
+          - unique_and_not_null
       - name: region
         description: region name
         tests:

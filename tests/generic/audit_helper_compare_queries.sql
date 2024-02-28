@@ -1,4 +1,5 @@
 {% test audit_helper_compare_queries(model, table_b, primary_key, except_columns=none) %}
+{{config(post_hook= "{{centralize_test_failures(results)}}", store_failures = true)}}
 
 {% set column_names = dbt_utils.get_filtered_columns_in_relation(from=model, except=exclude_columns) %}
 

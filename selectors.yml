@@ -17,3 +17,44 @@ selectors:
         - exclude: 
             - 'tag:audit_helper'
             - 'tag:unit_test'
+
+
+  - name: selector_example
+    description: this is an example of a job
+    definition: 
+      union: 
+        - intersection:
+          - method: tag
+            value: finance
+          - union: 
+            - method: path
+              value: models/marts/marketing
+            - method: path
+              value: models/marts/finance
+          - exclude: 
+              - method: tag
+                value: test_tag
+
+
+  # - name: selector_example
+  #   description: this is an example of a job
+  #   definition: 
+  #     union: 
+  #       - method: path
+  #         value: models/marts/marketing
+  #       - method: path
+  #         value: models/marts/finance
+  #       - intersection:
+  #         - method: tag
+  #           value: finance          
+  #       - exclude: 
+  #           - method: tag
+  #             value: test_tag
+
+  - name: selector_example2
+    description: this is an example of a job
+    definition: "models/marts/finance,tag:finance"
+
+        # - exclude: 
+        #     - method: tag
+        #       value: test_tag
