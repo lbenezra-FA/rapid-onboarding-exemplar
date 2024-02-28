@@ -18,7 +18,7 @@ final as (
     select 
         order_item.order_item_id,
         order_item.order_id,
-        order_item.order_date , -- merge conflict demo, changing name 
+        order_item.order_date as ordered_at, -- merge conflict demo, changing name 
         order_item.customer_id,
         order_item.part_id,
         order_item.supplier_id,
