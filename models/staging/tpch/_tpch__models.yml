@@ -1,14 +1,20 @@
 version: 2
 
 models:
+  - name: pre_stg_tpch__customers
+    description: staging layer for customers data
+    tests: 
+      - audit_helper_compare_queries:
+          table_b: source('tpch', 'customer')
+          primary_key: c_custkey
+          except_columns: c_address
+          config: 
+            tags: audit_helper
   - name: stg_tpch__customers
     description: staging layer for customers data
     columns:
       - name: customer_id
         description: primary id of the model
-        tests:
-          - unique
-          - not_null
       - name: name
         description: customer id
       - name: address

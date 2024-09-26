@@ -1,5 +1,5 @@
 {% test unique_and_not_null(model, column_name) %}
-
+{{config(store_failures=true)}}
     with null_records as (
         select {{ column_name }}
         from {{ model }}

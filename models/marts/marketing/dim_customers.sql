@@ -1,8 +1,4 @@
-{{
-    config(
-        transient = false
-    )
-}}
+
 
 with customer as (
 
@@ -42,5 +38,13 @@ select
     *
 from
     final
-order by
-    customer_id
+-- union all 
+-- select 
+--     1 as customer_id, 
+--     'Customer#000000001' as name, 
+--     null as address,
+--     null as nation, 
+--     null as region, 
+--     null as phone_number, 
+--     null as account_balance, 
+--     null as market_segment

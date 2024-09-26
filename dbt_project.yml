@@ -32,7 +32,7 @@ vars:
   future_proof_date: '9999-12-31'
 
 on-run-end:
-  - "{% if target.name == 'prod' %}{{ dbt_artifacts.upload_results(results) }}{% endif %}"
+  - "{{ centralize_test_failures(results) if results !=[]}} "
 
 
 # Configuring models
@@ -46,6 +46,7 @@ models:
         +group: finance
       marketing:
         +group: marketing
+        
       operations:
         +group: operations
     intermediate:
@@ -64,8 +65,4 @@ models:
     staging:
       +materialized: ephemeral
 
-tests:
-  rapid_onboarding_exemplar:
-    _samples:
-      staging:
-        +store_failures: "{{ true if target.name == 'prod' else false }}"
+

@@ -1,6 +1,11 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 with source as (
 
-    select * from {{ source('tpch', 'customer') }}
+    select * from {{ ref('pre_stg_tpch__customers') }}
 
 ),
 
